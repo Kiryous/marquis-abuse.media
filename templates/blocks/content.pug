@@ -17,7 +17,7 @@
     input#title-font-weight(type='text', value='600')
   // WISWIG окошко
   .cover-container
-    #cover
+    .cover#cover
       #text
         textarea#title(placeholder='Заголовок новости')
         // (На будущее, для материала) <input id="subtitle" type="text" placeholder="Подзаголовок"/>
@@ -41,10 +41,10 @@
     </div>
   #result
     // Скачивалка изображения и дебагер
-    a#download-button(onclick="downloadImg(this,'image-debug')") Скачать картинку
-    a.button(onclick='showPreview(this)') Показать
-    br
+    .result__buttons
+      a.result__button#download-button(onclick="downloadImg(this,'image-debug')") Скачать картинку
+      a.result__button.button(onclick='showPreview(this)') Показать
     // Канвас-дебагер
     canvas#image-debug(width='960px', height='480')
       | Ваш браузер не поддерживает <canvas>. Воспользуйтесь Гугль-Хромом или другим современным браузером
-img#background-image(src='http://yandex.ru/images/today?size=1920x1200')
+img.test-image#background-image(src='http://yandex.ru/images/today?size=1920x1200')
