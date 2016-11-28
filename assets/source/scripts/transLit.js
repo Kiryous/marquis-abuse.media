@@ -4,7 +4,7 @@ function transLit(w, v) {
     var ww= '', ch = '';
     w = w.toLowerCase().replace(/ /g, '-');
     for (var i = 0; i < w.length; ++i) {
-        cc = w.charCodeAt(i);
+        var cc = w.charCodeAt(i);
         if (cc >= 1072) {ch= tr[cc - 1072];} else {ch = w[i];}
         ww += ch;
     }
