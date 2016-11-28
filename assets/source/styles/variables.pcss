@@ -1,8 +1,14 @@
-/* Переменные */
-$helvetica: "Helvetica Neue", Arial, sans-serif;
+/*Шрифты*/
+:root {
+  --f_Helvetica:'Helvetica Neue', Arial, sans-serif;
+  --f_Permian_Sans: 'Permian Sans';
+  --f_Lora: 'Lora';
+  --size_Default: 18px;
+  --gray: rgba(0, 0, 0, .5);
+  --molokoColor: rgba(41, 146, 228, 1);
+}
 
-$link: blue;
-$link-hover: red;
-
-@custom-media --latex-tablet (width <= 1000px);
-@custom-media --latex-mobile (width <= 640px);
+/*Адаптив*/
+@custom-media --tablet (width <= 990px);
+@custom-media --miniTablet (width <= 860px);
+@custom-media --miniMobile (width <= 550px);
