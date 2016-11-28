@@ -16,7 +16,7 @@ function createImage() {
         titleFontWeight = document.getElementById('title-font-weight').value;
 
      // Склеиваем параметры заголовка
-    var titleFontStyle = titleFontWeight + ' ' + titleFontSize + 'px ' + titleFontFamily,
+    var titleFontStyle = `${titleFontWeight} ${titleFontSize}px ${titleFontFamily}`,
         maxWidth = '750';
 
     // Включаем видимость канваса
@@ -47,61 +47,31 @@ function createImage() {
     wrapText(ctx, title.value, 485, title.clientHeight + 85, maxWidth, 1.618 * titleFontSize);
 
     // Пишем логотип
-    ctx.font = '24px Permian Sans';
+    ctx.font = '32px Permian Sans';
     ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.textAlign = 'center';
-    ctx.fillText('abuse.media', 480, 448);
-}
-
-// Чтение и вставка файла из инпута
-function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
-    var cover = document.getElementById('cover');
-
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = files[i]; i++) {
-
-        // Only process image files.
-        if (!f.type.match('image.*')) {
-            continue;
-        }
-
-        var reader = new FileReader();
-
-        // Closure to capture the file information.
-        reader.onload = (function(theFile) {
-            return function(e) {
-                // Render thumbnail.
-                cover.style.backgroundImage = 'url(' + e.target.result + ')';
-                var backgroundImage = document.getElementById('background-image');
-                backgroundImage.src = e.target.result;
-            };
-        })(f);
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(f);
-    }
-    setTimeout(createImage, 100);
+    ctx.fillText('abuse.media', 480, 442);
 }
 
 // Вставка файла по ссылке
 function changeBg(url) {
-    document.getElementById('cover').style.backgroundImage = 'url(' + url + ')';
+    document.getElementById('cover').style.backgroundImage = `url(${url})`;
     document.getElementById('background-image').src = url;
     setTimeout(createImage, 100);
 }
 
 function changeBgPosition (position) {
-	document.getElementById('cover').style.backgroundPosition = 'center ' + position +'%';
+	document.getElementById('cover').style.backgroundPosition = `center ${position}%`;
 	createImage();
 }
 
 // Создание кнопки скачивания
-function downloadImg(link,canvasId) {
+function downloadImg(link, canvasId) {
 	var canvas = document.getElementById(canvasId),
-    title = document.getElementById('title'),
-    filename = transLit(title.value.slice(0,15))+'(quote)….png';
-    link.href = canvas.toDataURL("image/png");
-    link.download = filename;
+      title = document.getElementById('title'),
+      filename = transLit(title.value.slice(0,15))+'(quote)….png';
+  link.href = canvas.toDataURL("image/png");
+  link.download = filename;
 }
 
 function showPreview(button) {
