@@ -1,0 +1,37 @@
+.input-url {
+  width: 300px;
+  padding: 5px 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+
+  &:focus {
+    border-color: rgba(0,114,186, 0.5);
+  }
+}
+
+.input-file {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.input-file__input {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file__label {
+  height: 34px;
+  margin-right: 15px;
+  padding: 7px 10px;
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.input-line__middle {
+  margin-right: 10px;
+}
