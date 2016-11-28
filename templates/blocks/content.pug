@@ -42,13 +42,11 @@
     <canvas id="vk-post"></canvas>
     <canvas id="twi-post"></canvas>
     </div>
-  p 3. Посмотрите, что получилось и скачайте картинку себе.
+  p 3. Посмотрите, что получилось и скачайте картинку себе
   // Скачивалка изображения и дебагер
   #result
     .result__buttons
-      a.result__button#download-button Скачать картинку
+      a(target="_blank").result__button#download-button Скачать картинку
     // Канвас-дебагер
     canvas#image-debug(width='960px', height='480')
       | Ваш браузер не поддерживает <canvas>. Воспользуйтесь Гугль-Хромом или другим современным браузером
-
-  img.test-image(id="background-image", src="assets/img/lighthouse.jpg")

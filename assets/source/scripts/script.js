@@ -7,7 +7,7 @@ function createImage() {
         text = document.getElementById('text'),
         title = document.getElementById('title'),
         // subtitle = document.getElementById('subtitle'),
-        backgroundImage = document.getElementById('background-image'),
+        backgroundImage = window.backgroundImage,
         bgPosition = document.getElementById('bg-position').value;
 
     // Собираем параметры заголовка из скрытых полей
@@ -26,8 +26,8 @@ function createImage() {
     canvas.width = cover.offsetWidth;
 
     // Получаем высоту фоновой картинки
-    var scaleW = canvas.width / backgroundImage.clientWidth;
-    var scaleH = canvas.height / backgroundImage.clientHeight;
+    var scaleW = canvas.width / backgroundImage.width;
+    var scaleH = canvas.height / backgroundImage.height;
     var scale = scaleW > scaleH ? scaleW : scaleH;
     var cropWidth = backgroundImage.width * scale;
     var cropHeight = backgroundImage.height * scale;
@@ -53,14 +53,7 @@ function createImage() {
     ctx.fillText('abuse.media', 480, 442);
 }
 
-// Вставка файла по ссылке
-function changeBg(url) {
-    document.getElementById('cover').style.backgroundImage = `url(${url})`;
-    document.getElementById('background-image').src = url;
-    setTimeout(createImage, 100);
-}
-
-function changeBgPosition (position) {
+function changeBgPosition(position) {
 	document.getElementById('cover').style.backgroundPosition = `center ${position}%`;
 	createImage();
 }
@@ -85,11 +78,3 @@ function showPreview(button) {
         button.className='button';
     }
 }
-
-
-// Отрисовка при изменении
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
-document.getElementById('title').addEventListener('change', createImage, false);
-// document.getElementById('subtitle').addEventListener('change', createImage, false);
-// document.getElementById('imageUrl').addEventListener('change', changeBg(this.value), false);
-document.getElementById('bg-position').addEventListener('change', changeBgPosition, false);
