@@ -44,7 +44,7 @@ function createImage() {
     ctx.font = titleFontStyle;
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.textAlign = 'center';
-    wrapText(ctx, title.value, 485, title.clientHeight + 85, maxWidth, 1.618 * titleFontSize);
+    wrapText(ctx, title.value, 485, 151, maxWidth, 1.25 * titleFontSize);
 
     // Пишем логотип
     ctx.font = '32px Permian Sans';
