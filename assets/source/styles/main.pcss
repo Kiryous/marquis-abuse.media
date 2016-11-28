@@ -33,7 +33,8 @@ p {
 	position: relative;
 }
 
-#cover {
+.cover {
+	display: inline-block;
 	width: 960px;
 	height: 480px;
 	position: relative;
@@ -44,7 +45,7 @@ p {
 	background-image: url("http://yandex.ru/images/today?size=1920x1200");
 }
 
-#cover:after {
+.cover:after {
 	content: ' ';
 	position: absolute;
 	width: 100%;
@@ -130,6 +131,7 @@ input[type=range][orient=vertical] {
 .button:hover,
 .button_selected {
 	background: #8c8c8c;
+	border-color: #8c8c8c;
 	color: #fff;
 }
 
@@ -148,7 +150,6 @@ input[type=range][orient=vertical] {
 	text-decoration: none;
 	cursor: pointer;
 	display: inline-block;
-	margin: 10px 0px;
 }
 
 #download-button:before {
