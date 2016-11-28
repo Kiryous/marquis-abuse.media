@@ -22,7 +22,7 @@ document.getElementById('bg-position')
 
 //Handle download
 document.getElementById('download-button')
-  .addEventListener('input', (e) => {
+  .addEventListener('click', (e) => {
     let link = e.target;
     downloadImg(link, 'image-debug');
   }, false);
